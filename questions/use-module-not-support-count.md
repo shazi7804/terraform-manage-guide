@@ -42,4 +42,4 @@ Error: module "vpc": "count" is not a valid argument
 
 ## Resolve
 
-- [Support the count parameter for modules #953](hashicorp/terraform#953)
+- [Support the count parameter for modules #953](https://github.com/hashicorp/terraform/issues/953)
