@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - '8'
 before_install:
-  - yarn install
+  - yarn add -D vuepress
 script:
   - yarn run docs:build
 deploy:
