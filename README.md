@@ -6,6 +6,4 @@
 
 ## 作者
 
-本書由 [Mr.沙先生][mr.sha] 撰寫，歡迎對於有 Terraform 管理經驗者共同編輯。
-
-[mr.sha]: https://shazi.info
+本書由 [Mr.沙先生](https://shazi.info) 撰寫，歡迎對於有 Terraform 管理經驗者共同編輯。
