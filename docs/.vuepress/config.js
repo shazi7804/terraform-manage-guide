@@ -1,10 +1,11 @@
 module.exports = {
   title: 'Terraform 的一百零一種姿勢',
   description: 'Terraform manage guide',
+  base: 'terraform-manage-guide',
   themeConfig: {
     sidebar: [
       ['/', 'Terraform 的一百零一種姿勢'],
-      ['intro', 'Terraform 簡介'],
+      ['intro', '簡介'],
       ['/questions/', '已知問題']
     ],
     nav: [
