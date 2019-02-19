@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Terraform 的一百零一種姿勢',
   description: 'Terraform manage guide',
-  base: 'terraform-manage-guide',
+  base: "/<REPO>/",
   themeConfig: {
     sidebar: [
       ['/', 'Terraform 的一百零一種姿勢'],
