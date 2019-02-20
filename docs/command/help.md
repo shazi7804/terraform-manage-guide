@@ -1,6 +1,6 @@
-# Terraform 指令
+## terraform help
 
-Terraform 只是一個簡單而強大的指令 (Command line)，透過簡單的指令即可自動佈署 infrastructure 環境。
+直接執行 terraform 預設就可以看到使用方法。
 
 ```terraform
 $ terraform
@@ -39,44 +39,32 @@ All other commands:
     state              Advanced state management
 ```
 
-## Help
-
 terraform 對每一個 sub-command 都有 help 資訊
 
 ```bash
 $ terraform graph -h
+Usage: terraform graph [options] [DIR]
+
+  Outputs the visual execution graph of Terraform resources according to
+  configuration files in DIR (or the current directory if omitted).
+
+  The graph is outputted in DOT format. The typical program that can
+  read this format is GraphViz, but many web services are also available
+  to read this format.
+
+  The -type flag can be used to control the type of graph shown. Terraform
+  creates different graphs for different operations. See the options below
+  for the list of types supported. The default type is "plan" if a
+  configuration is given, and "apply" if a plan file is passed as an
+  argument.
+
+Options:
+
+  -draw-cycles   Highlight any cycles in the graph with colored edges.
+                 This helps when diagnosing cycle errors.
+
+  -no-color      If specified, output won't contain any color.
+
+  -type=plan     Type of graph to output. Can be: plan, plan-destroy, apply,
+                 validate, input, refresh.
 ```
-
-## Shell auto complete
-
-如果你使用的是常見的 bash 或 zsh shell 的話，可以使用 terraform 提供的 auto complete，用 Tab 就可以讓 sub-command 自動補齊。
-
-
-### 設定 auto complete
-
-```bash
-$ echo 'complete -o nospace -C /usr/local/bin/terraform terraform' > ~/.bashrc
-```
-
-或者使用 terraform 的 -install-autocomplete 安裝
-
-```bash
-$ terraform -install-autocomplete
-```
-
-解除安裝也只要一行
-
-```bash
-$ terraform -uninstall-autocomplete
-```
-
-## terraformrc
-
-terraform 的設定檔預設在 `.terraformrc/terraform.rc` (Windows 則在 %APPDATA%/terraform.rc)
-
-提供幾個參數使用
-
-- disable_checkpoint：預設 terraform 會與 [HashiCorp service](https://checkpoint.hashicorp.com/) 檢查版本訊息。
-- disable_checkpoint_signature：預設 terraform 會檢查 HashiCorp service 的憑證簽章。
-- plugin_cache_dir：plugin cache 目錄。
-- credentials：存取 [remote backend](https://www.terraform.io/docs/backends/types/remote.html) 或 [Terraform Enterprise's private module registry](https://www.terraform.io/docs/enterprise/registry/index.html) 時的認證

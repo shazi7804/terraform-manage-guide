@@ -4,7 +4,9 @@ module.exports = {
   base: '/terraform-manage-guide/',
   repo: 'https://github.com/shazi7804/terraform-manage-guide',
   themeConfig: {
+    sidebarDepth: 0,
     sidebar: [
+      ['/', '前言'],
       {
         title: '簡介',
         collapsable: false,
@@ -16,9 +18,30 @@ module.exports = {
       {
         title: '基礎',
         collapsable: false,
+        sidebarDepth: 2,
         children: [
-          '/basic/component',
-          '/basic/command',
+          '/basic/install',
+        ]
+      },
+      {
+        title: '元件',
+        collapsable: false,
+        children: [
+          '/component/provider',
+          '/component/resource',
+          '/component/data',
+          '/component/output',
+          '/component/locals',
+        ]
+      },
+      {
+        title: '指令',
+        collapsable: false,
+        children: [
+          '/command/help',
+          '/command/plan',
+          '/command/apply',
+          '/command/import',
         ]
       },
       {

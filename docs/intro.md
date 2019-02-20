@@ -1,3 +1,0 @@
-# Terraform 簡介
-
-#
