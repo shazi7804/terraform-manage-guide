@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>terraform help | Terraform 的一百零一種姿勢</title>
+    <meta name="description" content="Terraform manage guide">
+    
+    
+    <link rel="preload" href="/terraform-manage-guide/assets/css/0.styles.10491a7f.css" as="style"><link rel="preload" href="/terraform-manage-guide/assets/js/app.f1fb8a43.js" as="script"><link rel="preload" href="/terraform-manage-guide/assets/js/7.17f4614a.js" as="script"><link rel="prefetch" href="/terraform-manage-guide/assets/js/10.a543acca.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/11.106f3df4.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/12.440604de.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/13.8fb41e10.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/14.89693760.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/15.75269934.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/16.97d1167d.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/17.869982ba.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/18.c50070dd.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/19.df22d470.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/2.8203c92b.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/3.d2b6fa5f.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/4.2d5c9a18.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/5.02b00f23.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/6.16693dec.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/8.03fa44ba.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/9.f60dd873.js">
+    <link rel="stylesheet" href="/terraform-manage-guide/assets/css/0.styles.10491a7f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/terraform-manage-guide/" class="home-link router-link-active"><!----> <span class="site-name">Terraform 的一百零一種姿勢</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/terraform-manage-guide/" class="nav-link">Home</a></div><div class="nav-item"><a href="https://github.com/shazi7804/terraform-manage-guide" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/terraform-manage-guide/" class="nav-link">Home</a></div><div class="nav-item"><a href="https://github.com/shazi7804/terraform-manage-guide" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/terraform-manage-guide/" class="sidebar-link">前言</a></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>簡介</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/terraform-manage-guide/intro/what-terraform.html" class="sidebar-link">什麼是 Terraform</a></li><li><a href="/terraform-manage-guide/intro/why-terraform.html" class="sidebar-link">為什麼要用 Terraform</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>基礎</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/terraform-manage-guide/basic/install.html" class="sidebar-link">安裝</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>元件</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/terraform-manage-guide/component/provider.html" class="sidebar-link">Provider</a></li><li><a href="/terraform-manage-guide/component/resource.html" class="sidebar-link">Resource</a></li><li><a href="/terraform-manage-guide/component/data.html" class="sidebar-link">Data</a></li><li><a href="/terraform-manage-guide/component/output.html" class="sidebar-link">Output</a></li><li><a href="/terraform-manage-guide/component/locals.html" class="sidebar-link">Locals</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading open"><span>指令</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/terraform-manage-guide/command/help.html" class="active sidebar-link">terraform help</a></li><li><a href="/terraform-manage-guide/command/plan.html" class="sidebar-link">terraform plan</a></li><li><a href="/terraform-manage-guide/command/apply.html" class="sidebar-link">terraform apply</a></li><li><a href="/terraform-manage-guide/command/import.html" class="sidebar-link">terraform import</a></li></ul></div></li><li><div class="sidebar-group"><p class="sidebar-heading"><span>已知問題</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/terraform-manage-guide/questions/use-module-not-support-count.html" class="sidebar-link">使用 module 不支援 count</a></li><li><a href="/terraform-manage-guide/questions/count-not-calculate.html" class="sidebar-link">不能在 count 內計算數值</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h2 id="terraform-help"><a href="#terraform-help" aria-hidden="true" class="header-anchor">#</a> terraform help</h2> <p>直接執行 terraform 預設就可以看到使用方法。</p> <div class="language-terraform extra-class"><pre class="language-text"><code>$ terraform
+Usage: terraform [--version] [--help] &lt;command&gt; [args]
+
+The available commands for execution are listed below.
+The most common, useful commands are shown first, followed by
+less common or more advanced commands. If you're just getting
+started with Terraform, stick with the common commands. For the
+other commands, please read the help and docs before usage.
+
+Common commands:
+    apply              Builds or changes infrastructure
+    console            Interactive console for Terraform interpolations
+    destroy            Destroy Terraform-managed infrastructure
+    fmt                Rewrites config files to canonical format
+    get                Download and install modules for the configuration
+    graph              Create a visual graph of Terraform resources
+    import             Import existing infrastructure into Terraform
+    init               Initialize a new or existing Terraform configuration
+    output             Read an output from a state file
+    plan               Generate and show an execution plan
+    providers          Prints a tree of the providers used in the configuration
+    push               Upload this Terraform module to Terraform Enterprise to run
+    refresh            Update local state file against real resources
+    show               Inspect Terraform state or plan
+    taint              Manually mark a resource for recreation
+    untaint            Manually unmark a resource as tainted
+    validate           Validates the Terraform files
+    version            Prints the Terraform version
+    workspace          Workspace management
+
+All other commands:
+    debug              Debug output management (experimental)
+    force-unlock       Manually unlock the terraform state
+    state              Advanced state management
+</code></pre></div><p>terraform 對每一個 sub-command 都有 help 資訊</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ terraform graph -h
+Usage: terraform graph <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>DIR<span class="token punctuation">]</span>
+
+  Outputs the visual execution graph of Terraform resources according to
+  configuration files <span class="token keyword">in</span> DIR <span class="token punctuation">(</span>or the current directory <span class="token keyword">if</span> omitted<span class="token punctuation">)</span>.
+
+  The graph is outputted <span class="token keyword">in</span> DOT format. The typical program that can
+  <span class="token function">read</span> this <span class="token function">format</span> is GraphViz, but many web services are also available
+  to <span class="token function">read</span> this format.
+
+  The -type flag can be used to control the <span class="token function">type</span> of graph shown. Terraform
+  creates different graphs <span class="token keyword">for</span> different operations. See the options below
+  <span class="token keyword">for</span> the list of types supported. The default <span class="token function">type</span> is <span class="token string">&quot;plan&quot;</span> <span class="token keyword">if</span> a
+  configuration is given, and <span class="token string">&quot;apply&quot;</span> <span class="token keyword">if</span> a plan <span class="token function">file</span> is passed as an
+  argument.
+
+Options:
+
+  -draw-cycles   Highlight any cycles <span class="token keyword">in</span> the graph with colored edges.
+                 This helps when diagnosing cycle errors.
+
+  -no-color      If specified, output won't contain any color.
+
+  -type<span class="token operator">=</span>plan     Type of graph to output. Can be: plan, plan-destroy, apply,
+                 validate, input, refresh.
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/terraform-manage-guide/component/locals.html" class="prev">
+          Locals
+        </a></span> <span class="next"><a href="/terraform-manage-guide/command/plan.html">
+          terraform plan
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/terraform-manage-guide/assets/js/app.f1fb8a43.js" defer></script><script src="/terraform-manage-guide/assets/js/7.17f4614a.js" defer></script>
+  </body>
+</html>
