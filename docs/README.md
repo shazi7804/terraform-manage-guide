@@ -2,6 +2,8 @@
 
 ## 前言
 
+Terraform 是一個實現 infrastructure as code 的工具。
+
 ## 勘誤
 
 請來信 _shazi7804 \(at\) gmail.com_ 或至 [Github](https://github.com/shazi7804/terraform-manage-guide) 推送 Pull Request 和 Issues。
