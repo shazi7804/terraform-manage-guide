@@ -7,7 +7,7 @@ default: help
 help:
 	@echo 'Use "make <docs, run>" to build documentation.'
 
-doc:
+docs:
 	@echo 'building docs files ...'
 	vuepress build docs
 

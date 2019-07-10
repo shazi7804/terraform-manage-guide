@@ -7,12 +7,14 @@ module.exports = {
     sidebarDepth: 0,
     sidebar: [
       ['/', '前言'],
+      ['/SUMMARY', 'Summary'],
       {
         title: '簡介',
         collapsable: false,
         children: [
           '/intro/what-terraform',
           '/intro/why-terraform',
+          '/intro/terraform-vs-cloudformation',
         ]
       },
       {

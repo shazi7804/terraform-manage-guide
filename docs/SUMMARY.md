@@ -4,6 +4,7 @@
 - 簡介
   - [什麼是 Terraform](intro/what-terraform.md)
   - [為什麼要用 Terraform](intro/why-terraform.md)
+  - [Terraform VS. CloudFormation](intro/terraform-vs-cloudformation.md)
 - 基礎
   - [重要元件組成](basic/component.md)
   - [安裝](basic/install.md)
