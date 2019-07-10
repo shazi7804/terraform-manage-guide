@@ -38,7 +38,6 @@ module.exports = {
       {
         title: '基礎',
         collapsable: false,
-        sidebarDepth: 2,
         children: [
           '/basic/install',
           '/basic/resource',
