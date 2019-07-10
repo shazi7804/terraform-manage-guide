@@ -7,7 +7,6 @@ module.exports = {
     sidebarDepth: 0,
     sidebar: [
       ['/', '前言'],
-      ['/SUMMARY', 'Summary'],
       {
         title: '簡介',
         collapsable: false,
@@ -18,22 +17,12 @@ module.exports = {
         ]
       },
       {
-        title: '基礎',
-        collapsable: false,
-        sidebarDepth: 2,
-        children: [
-          '/basic/install',
-        ]
-      },
-      {
-        title: '元件',
+        title: '主要元件',
         collapsable: false,
         children: [
           '/component/provider',
-          '/component/resource',
-          '/component/data',
-          '/component/output',
-          '/component/locals',
+          '/component/state-storage-and-locking',
+          '/component/backends',
         ]
       },
       {
@@ -44,6 +33,32 @@ module.exports = {
           '/command/plan',
           '/command/apply',
           '/command/import',
+        ]
+      },
+      {
+        title: '基礎',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: [
+          '/basic/install',
+          '/basic/resource',
+          '/basic/data',
+          '/basic/output',
+          '/basic/locals',
+        ]
+      },
+      {
+        title: 'AWS 使用案例',
+        collapsable: false,
+        children: [
+
+        ]
+      },
+      {
+        title: 'OpenStack 使用案例',
+        collapsable: false,
+        children: [
+
         ]
       },
       {

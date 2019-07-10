@@ -1,6 +1,6 @@
 # Provider
 
-provider 是整個 terraform 最重要的元件，你必須設定該 terrafrom 要執行的環境 (example: AWS)，以及該環境的 terraform 權限 (Example: access_key, secret_key)
+[Provides](https://www.terraform.io/docs/providers/index.html) 是整個 terraform 最重要的元件，你必須設定該 terrafrom 要執行的環境 (e.g. AWS)，以及該環境的 terraform 權限 (Example：regions、access_key、secret_key)
 
 ```terraform
 provider "aws" {
@@ -39,4 +39,19 @@ provider "aws" {
   shared_credentials_file = "/Users/tf_user/.aws/creds"
   profile                 = "customprofile"
 }
+```
+
+## Multiple Providers
+
+在特殊情況下會需要使用多個 Providers，像是 Cross Regions、跨平台等，利用 `alias` 指定不同 provider。
+
+```
+provider "aws" {
+  region = "ap-northeast-1"
+  alias  = "main"
+}
+
+provider "aws" {
+  region = "us-east-1"
+  alias  = "cloudfront"
 ```
