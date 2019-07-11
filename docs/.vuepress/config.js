@@ -50,7 +50,9 @@ module.exports = {
         title: 'AWS 使用案例',
         collapsable: false,
         children: [
-
+          '/aws-use-case/initial',
+          '/aws-use-case/first-ec2-instance',
+          '/aws-use-case/web-instance',
         ]
       },
       {
