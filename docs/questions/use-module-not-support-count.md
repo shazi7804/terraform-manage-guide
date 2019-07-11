@@ -4,7 +4,7 @@
 
 使用同一份 terraform code 維護多個環境時，`使用 module 建立 resource`，無法使用 count 判斷該 module 是否需要存在。
 
-## Example
+## 範例
 
 - vpc.tf
 ```terraform
@@ -24,22 +24,26 @@ variable "vpc_create" {
 }
 ```
 
+當 `vpc_create` 為 true 時運作正常
+
 - main.auto.tfvars (dev)
 ```terraform
 vpc_create = true
 ```
+
+當 `vpc_create` 為 false 時則找不到 count
 
 - main.auto.tfvars (production)
 ```terraform
 vpc_create = false
 ```
 
-## Issess
+## 問題
 
 ```
 Error: module "vpc": "count" is not a valid argument
 ```
 
-## Resolve
+## 參考資料
 
 - [Support the count parameter for modules #953](https://github.com/hashicorp/terraform/issues/953)
