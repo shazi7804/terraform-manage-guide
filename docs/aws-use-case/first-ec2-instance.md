@@ -70,4 +70,4 @@ $ terraform apply terraform-101-workshop
 $ terraform destroy
 ```
 
-確認 EC2 刪除。 
+- 確認 EC2 刪除。 

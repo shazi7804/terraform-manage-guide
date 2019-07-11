@@ -57,6 +57,13 @@ resource "aws_security_group" "elb" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
   tags = {
     Name = "terraform-101-elb-sg"
   }
@@ -65,6 +72,13 @@ resource "aws_security_group" "elb" {
 resource "aws_security_group" "web" {
   name_prefix = "terraform-101-web-"
   description = "allow all outcomming traffic"
+
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
 
   tags = {
     Name = "terraform-101-web-sg"
@@ -92,13 +106,13 @@ resource "aws_instance" "web" {
 
   ami             = "${data.aws_ami.ubuntu.id}"
   instance_type   = "t3.nano"
-  security_groups = ["${aws_security_group.web.id}"]
+  vpc_security_group_ids = ["${aws_security_group.web.id}"]
 
-  
+
 
   user_data = <<-EOF
                 #!/bin/bash
-                apt update && apt-get install -y apache2
+                apt-get install -y apache2
                 echo `hostname` > /var/www/html/index.html
               EOF
 
@@ -114,8 +128,8 @@ resource "aws_instance" "web" {
 resource "aws_elb" "web-elb" {
   name = "terraform-101-elb"
 
-  instances       = ["${aws_instance.web.*.id}"]
-  security_groups = ["${aws_security_group.elb.id}"]
+  security_groups    = ["${aws_security_group.elb.id}"]
+  availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]
 
 
   health_check {
@@ -132,6 +146,12 @@ resource "aws_elb" "web-elb" {
     instance_port     = "80"
     instance_protocol = "http"
   }
+}
+
+resource "aws_elb_attachment" "elb" {
+  count = 2
+  elb      = "${aws_elb.web-elb.id}"
+  instance = "${aws_instance.web.*.id[count.index]}"
 }
 ```
 
@@ -156,4 +176,3 @@ $ terraform destroy
 - 確認 EC2 刪除。 
 - 確認 ELB 刪除。
 - 確認 Security Groups 刪除。
-  
