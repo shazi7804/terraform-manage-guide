@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>實作 Web Instance | Terraform 的一百零一種姿勢</title>
+    <meta name="description" content="Terraform manage guide">
+    
+    
+    <link rel="preload" href="/terraform-manage-guide/assets/css/0.styles.9b01d8f0.css" as="style"><link rel="preload" href="/terraform-manage-guide/assets/js/app.78e38636.js" as="script"><link rel="preload" href="/terraform-manage-guide/assets/js/2.8de084d6.js" as="script"><link rel="preload" href="/terraform-manage-guide/assets/js/9.f6f4680c.js" as="script"><link rel="prefetch" href="/terraform-manage-guide/assets/js/10.20bdd4cd.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/11.b0cfb3c0.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/12.3ff272ea.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/13.f4e49f13.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/14.08adb4c9.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/15.59fe4d4c.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/16.d717138d.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/17.bcd168a6.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/18.3fb2b650.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/19.5410e832.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/20.5599c901.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/21.6f144029.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/22.b5ef5e44.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/23.abbe6ad5.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/24.789ee696.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/25.205650c0.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/26.746d6ac1.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/3.d84b32ae.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/4.b4de672c.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/5.509d06a8.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/6.2c2acdcd.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/7.51c9aaa7.js"><link rel="prefetch" href="/terraform-manage-guide/assets/js/8.4155ee25.js">
+    <link rel="stylesheet" href="/terraform-manage-guide/assets/css/0.styles.9b01d8f0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/terraform-manage-guide/" class="home-link router-link-active"><!----> <span class="site-name">Terraform 的一百零一種姿勢</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/terraform-manage-guide/" class="nav-link">Home</a></div><div class="nav-item"><a href="https://github.com/shazi7804/terraform-manage-guide" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/terraform-manage-guide/" class="nav-link">Home</a></div><div class="nav-item"><a href="https://github.com/shazi7804/terraform-manage-guide" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/terraform-manage-guide/" class="sidebar-link">前言</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>簡介</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/terraform-manage-guide/intro/what-terraform.html" class="sidebar-link">什麼是 Terraform</a></li><li><a href="/terraform-manage-guide/intro/why-terraform.html" class="sidebar-link">為什麼要用 Terraform</a></li><li><a href="/terraform-manage-guide/intro/terraform-vs-cloudformation.html" class="sidebar-link">Terraform VS. CloudFormation</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>主要元件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/terraform-manage-guide/component/provider.html" class="sidebar-link">Provider</a></li><li><a href="/terraform-manage-guide/component/state-storage-and-locking.html" class="sidebar-link">State Storage and Locking</a></li><li><a href="/terraform-manage-guide/component/backends.html" class="sidebar-link">Backends</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>指令</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/terraform-manage-guide/command/help.html" class="sidebar-link">terraform help</a></li><li><a href="/terraform-manage-guide/command/plan.html" class="sidebar-link">terraform plan</a></li><li><a href="/terraform-manage-guide/command/apply.html" class="sidebar-link">terraform apply</a></li><li><a href="/terraform-manage-guide/command/import.html" class="sidebar-link">terraform import</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>基礎</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/terraform-manage-guide/basic/install.html" class="sidebar-link">Install</a></li><li><a href="/terraform-manage-guide/basic/resource.html" class="sidebar-link">Resource</a></li><li><a href="/terraform-manage-guide/basic/data.html" class="sidebar-link">Data</a></li><li><a href="/terraform-manage-guide/basic/output.html" class="sidebar-link">Output</a></li><li><a href="/terraform-manage-guide/basic/locals.html" class="sidebar-link">Locals</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>AWS 使用案例</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/terraform-manage-guide/aws-use-case/initial.html" class="sidebar-link">前置準備</a></li><li><a href="/terraform-manage-guide/aws-use-case/first-ec2-instance.html" class="sidebar-link">第一個 EC2 Instance</a></li><li><a href="/terraform-manage-guide/aws-use-case/web-instance.html" class="active sidebar-link">實作 Web Instance</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>OpenStack 使用案例</span> <!----></p> <!----></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>已知問題</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/terraform-manage-guide/questions/use-module-not-support-count.html" class="sidebar-link">使用 module 不支援 count</a></li><li><a href="/terraform-manage-guide/questions/count-not-calculate.html" class="sidebar-link">不能在 count 內計算數值</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="實作-web-instance"><a href="#實作-web-instance" aria-hidden="true" class="header-anchor">#</a> 實作 Web Instance</h1> <h2 id="實作資源"><a href="#實作資源" aria-hidden="true" class="header-anchor">#</a> 實作資源</h2> <ul><li><a href="https://www.terraform.io/docs/providers/aws/d/ami.html" target="_blank" rel="noopener noreferrer">data aws_ami<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.terraform.io/docs/providers/aws/r/instance.html" target="_blank" rel="noopener noreferrer">resource aws_instance<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.terraform.io/docs/providers/aws/r/security_group.html" target="_blank" rel="noopener noreferrer">resource aws_security_group<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.terraform.io/docs/providers/aws/r/security_group_rule.html" target="_blank" rel="noopener noreferrer">resource aws_security_group_rule<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.terraform.io/docs/providers/aws/r/elb.html" target="_blank" rel="noopener noreferrer">resource aws_elb<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li><a href="https://www.terraform.io/docs/providers/aws/r/elb_attachment.html" target="_blank" rel="noopener noreferrer">resource aws_elb_attachment<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul> <h2 id="實作目標"><a href="#實作目標" aria-hidden="true" class="header-anchor">#</a> 實作目標</h2> <ol><li>使用 data 搜尋到 Ubuntu 18.04 的 AMI-ID</li> <li>建立 Ubuntu 18.04 的 EC2 instance</li> <li>使用 user data 安裝 apache</li> <li>使用 count 建立多台 instance 並且掛上 ELB</li></ol> <h2 id="lab-start"><a href="#lab-start" aria-hidden="true" class="header-anchor">#</a> LAB Start</h2> <ul><li><strong>main.tf</strong></li></ul> <div class="language-terraform extra-class"><pre class="language-text"><code>provider &quot;aws&quot; {
+  region = &quot;us-west-2&quot;
+}
+
+data &quot;aws_ami&quot; &quot;ubuntu&quot; {
+  most_recent = true
+
+  filter {
+    name   = &quot;name&quot;
+    values = [&quot;ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-*&quot;]
+  }
+
+  filter {
+    name   = &quot;virtualization-type&quot;
+    values = [&quot;hvm&quot;]
+  }
+
+  owners = [&quot;099720109477&quot;] # Canonical
+}
+</code></pre></div><ul><li><strong>security-groups.tf</strong> 定義 security groups</li></ul> <div class="language-terraform extra-class"><pre class="language-text"><code>resource &quot;aws_security_group&quot; &quot;elb&quot; {
+  name_prefix = &quot;terraform-101-elb-&quot;
+  description = &quot;allow all outcomming traffic&quot;
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = &quot;tcp&quot;
+    cidr_blocks = [&quot;0.0.0.0/0&quot;]
+  }
+
+  tags = {
+    Name = &quot;terraform-101-elb-sg&quot;
+  }
+}
+
+resource &quot;aws_security_group&quot; &quot;web&quot; {
+  name_prefix = &quot;terraform-101-web-&quot;
+  description = &quot;allow all outcomming traffic&quot;
+
+  tags = {
+    Name = &quot;terraform-101-web-sg&quot;
+  }
+}
+
+resource &quot;aws_security_group_rule&quot; &quot;web-rule&quot; {
+  type            = &quot;ingress&quot;
+  from_port       = 80
+  to_port         = 80
+  protocol        = &quot;tcp&quot;
+
+  source_security_group_id = &quot;${aws_security_group.elb.id}&quot;
+
+  security_group_id = &quot;${aws_security_group.web.id}&quot;
+}
+</code></pre></div><ul><li><strong>ec2.tf</strong> 定義 ec2 instance</li></ul> <div class="language-terraform extra-class"><pre class="language-text"><code>resource &quot;aws_instance&quot; &quot;web&quot; {
+  count = 2
+
+  ami             = &quot;${data.aws_ami.ubuntu.id}&quot;
+  instance_type   = &quot;t3.nano&quot;
+  security_groups = [&quot;${aws_security_group.web.id}&quot;]
+
+  
+
+  user_data = &lt;&lt;-EOF
+                #!/bin/bash
+                apt update &amp;&amp; apt-get install -y apache2
+                echo `hostname` &gt; /var/www/html/index.html
+              EOF
+
+  tags = {
+    Name = &quot;terraform-101-web-instance&quot;
+  }
+}
+</code></pre></div><ul><li><strong>elb.tf</strong> 定義 ELB</li></ul> <div class="language-terraform extra-class"><pre class="language-text"><code>resource &quot;aws_elb&quot; &quot;web-elb&quot; {
+  name = &quot;terraform-101-elb&quot;
+
+  instances       = [&quot;${aws_instance.web.*.id}&quot;]
+  security_groups = [&quot;${aws_security_group.elb.id}&quot;]
+
+
+  health_check {
+    healthy_threshold = 2
+    unhealthy_threshold = 2
+    timeout = 3
+    interval = 30
+    target = &quot;HTTP:80/&quot;
+  }
+
+  listener {
+    lb_port           = &quot;80&quot;
+    lb_protocol       = &quot;http&quot;
+    instance_port     = &quot;80&quot;
+    instance_protocol = &quot;http&quot;
+  }
+}
+</code></pre></div><p>執行 terraform 佈署</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ terraform init
+$ terraform plan -out<span class="token operator">=</span>terraform-101-workshop
+$ terraform apply terraform-101-workshop
+</code></pre></div><h2 id="驗證"><a href="#驗證" aria-hidden="true" class="header-anchor">#</a> 驗證</h2> <ul><li>連續透過 ELB 訪問 80 port，會 random 兩台 instance。</li></ul> <h2 id="清場"><a href="#清場" aria-hidden="true" class="header-anchor">#</a> 清場</h2> <div class="language-bash extra-class"><pre class="language-bash"><code>$ terraform destroy
+</code></pre></div><ul><li>確認 EC2 刪除。</li> <li>確認 ELB 刪除。</li> <li>確認 Security Groups 刪除。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/terraform-manage-guide/aws-use-case/first-ec2-instance.html" class="prev">
+          第一個 EC2 Instance
+        </a></span> <span class="next"><a href="/terraform-manage-guide/questions/use-module-not-support-count.html">
+          使用 module 不支援 count
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/terraform-manage-guide/assets/js/app.78e38636.js" defer></script><script src="/terraform-manage-guide/assets/js/2.8de084d6.js" defer></script><script src="/terraform-manage-guide/assets/js/9.f6f4680c.js" defer></script>
+  </body>
+</html>
