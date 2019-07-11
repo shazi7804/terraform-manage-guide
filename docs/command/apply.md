@@ -1,6 +1,6 @@
 # terraform apply
 
-[apply](https://www.terraform.io/docs/commands/apply.html) 當你的確認都已經 final 後，apply 會按照設定執行更新，而 apply 更新有兩種模式。
+[apply](https://www.terraform.io/docs/commands/apply.html) 當確認都已經 final 後，apply 會按照設定執行更新，而 apply 更新有兩種模式。
 
 ```bash
 $ terraform apply

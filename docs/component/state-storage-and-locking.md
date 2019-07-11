@@ -1,6 +1,6 @@
 # State Storage and Locking
 
-[State](https://www.terraform.io/docs/state/) 是 Terraform 最重要的資訊，如果沒有保存好，那麼你的 IaC 就有可能大亂。
+[State](https://www.terraform.io/docs/state/) 是 Terraform 最重要的資訊，如果沒有保存好，那麼 IaC 就有可能大亂。
 
 Terraform 本身需要 `state` 來判斷 Resource 的現況，若是 `state` 不存在，Terraform 將不認得既有存在的服務，如果在沒有 `state` 的情況下，Terraform 會以 New Resource 的方式新建資源。
 

@@ -1,8 +1,6 @@
 # Data
 
-data 用於查找 `既有資源`，透過 data 去把對應的 resource name、id 找出來。
-
-
+[data](https://www.terraform.io/docs/configuration/data-sources.html) 用於查找 `既有資源`，透過 data 去把對應的 resource name、id 找出來。
 
 ## 語法
 

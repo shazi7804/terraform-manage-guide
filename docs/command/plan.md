@@ -20,7 +20,7 @@ persisted to local or remote state storage.
 data.aws_ami.ubuntu: Refreshing state...
 ```
 
-2. 接下來 `plan` 會告訴你這次執行會有的 `動作`
+2. 接下來 `plan` 會印出這次執行會有的 `動作`
 
 ```bash
 An execution plan has been generated and is shown below.
@@ -60,7 +60,7 @@ Plan: 8 to add, 0 to change, 0 to destroy.
 
 ## 使用 `-out` 避免 apply 與 plan 的差異
 
-使用自動化執行 terraform 時 `-out` 可以幫你匯出這次 plan 的 `異動清單`，讓 [apply](apply.md) 執行時按照這個 `異動清單` 執行更新，確保 plan 和 apply 執行時是相同的結果。
+使用自動化執行 terraform 時 `-out` 可以匯出這次 plan 的 `異動清單`，讓 [apply](apply.md) 執行時按照這個 `異動清單` 執行更新，確保 plan 和 apply 執行時是相同的結果。
 
 ```bash
 $ terraform plan -out=sample-deployment

@@ -1,6 +1,6 @@
 # Terraform VS. CloudFormation
 
-[CloudFormation](https://aws.amazon.com/tw/cloudformation/) 是 [AWS][aws] 原生的 infrastructure as code 服務，你可以透過 JSON、YAML 格式佈署 AWS 服務，與 Terraform 是相同性質的 IaC 工具，在使用前可以先參考兩者的比較。
+[CloudFormation](https://aws.amazon.com/tw/cloudformation/) 是 [AWS][aws] 原生的 infrastructure as code 服務，可以透過 JSON、YAML 格式佈署 AWS 服務，與 Terraform 是相同性質的 IaC 工具，在使用前可以先參考兩者的比較。
 
 ![terraform-cloudformation-comparison](../assets/img/terraform-cloudformation-comparison.png)
 

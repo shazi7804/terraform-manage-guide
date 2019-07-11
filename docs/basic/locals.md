@@ -1,6 +1,6 @@
 # Locals
 
-`locals` 通常在 module 內用於重複使用，常常用來將 variable 的值拿來運算或者特殊處理。
+[locals](https://www.terraform.io/docs/configuration/locals.html) 通常在 module 內用於重複使用，常常用來將 variable 的值拿來運算或者特殊處理。
 
 - `locals` 包含多個 `variable` 一次餵給 resource。
 

@@ -1,6 +1,6 @@
 # Provider
 
-[Provides](https://www.terraform.io/docs/providers/index.html) 是整個 terraform 最重要的元件，你必須設定該 terrafrom 要執行的環境 (e.g. AWS)，以及該環境的 terraform 權限 (Example：regions、access_key、secret_key)
+[Provides](https://www.terraform.io/docs/providers/index.html) 是整個 terraform 最重要的元件，必須設定該 terrafrom 要執行的環境 (e.g. AWS)，以及該環境的 terraform 權限 (Example：regions、access_key、secret_key)
 
 ```terraform
 provider "aws" {
@@ -31,7 +31,7 @@ $ terraform plan
 
 ## Shared Credentials file
 
-如果你有多個 terraform 要指定不同 credential 的需求，`Shared Credentials file` 可以讓你指定不同的 credentials file，通常在 local 開發會用到這樣的方式
+如果有多個 terraform 要指定不同 credential 的需求，`Shared Credentials file` 可以指定不同的 credentials file，通常在 local 開發會用到這樣的方式
 
 ```
 provider "aws" {

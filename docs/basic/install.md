@@ -3,7 +3,7 @@
 
 ## Shell auto complete
 
-如果你使用的是常見的 bash 或 zsh shell 的話，可以使用 terraform 提供的 auto complete，用 Tab 就可以讓 sub-command 自動補齊。
+如果使用的是常見的 bash 或 zsh shell 的話，可以使用 terraform 提供的 auto complete，用 Tab 就可以讓 sub-command 自動補齊。
 
 
 ### 設定 auto complete
